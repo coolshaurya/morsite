@@ -20,7 +20,7 @@ impl MorseSound {
             dot_duration,
         }
     }
-    pub fn new_with_defaults(morse: MorseString) -> Self {
+    pub fn with_defaults(morse: MorseString) -> Self {
         Self::from_paris_wpm(morse, 1000, 20)
     }
     pub fn from_paris_wpm(morse: MorseString, freq: u32, paris_wpm: u64) -> Self {
