@@ -20,24 +20,33 @@ impl MorseSound {
             dot_duration,
         }
     }
+
     pub fn with_defaults(morse: MorseString) -> Self {
-        Self::from_paris_wpm(morse, 1000, 20)
+        Self::new(morse, 1000, Duration::from_millis(60)) // A dot duration of 60ms is equal to 20 wpm on the PARIS standard
     }
-    pub fn from_paris_wpm(morse: MorseString, freq: u32, paris_wpm: u64) -> Self {
-        let dot_duration = Duration::from_nanos((1200 * 1000 * 1000) / paris_wpm);
-        MorseSound {
-            morse,
-            freq,
-            dot_duration,
-        }
+
+    pub fn freq(&self) -> u32 {
+        self.freq
     }
-    pub fn from_codex_wpm(morse: MorseString, freq: u32, codex_wpm: u64) -> Self {
-        let dot_duration = Duration::from_nanos((1000 * 1000 * 1000) / codex_wpm);
-        MorseSound {
-            morse,
-            freq,
-            dot_duration,
-        }
+
+    pub fn dot_duration(&self) -> Duration {
+        self.dot_duration
+    }
+
+    pub fn set_freq(&mut self, freq: u32) {
+        self.freq = freq;
+    }
+
+    pub fn set_dot_duration(&mut self, dot_duration: Duration) {
+        self.dot_duration = dot_duration;
+    }
+
+    pub fn set_paris_wpm(&mut self, paris_wpm: u64) {
+        self.dot_duration = Duration::from_nanos((1200 * 1000 * 1000) / paris_wpm);
+    }
+
+    pub fn set_codex_wpm(&mut self, codex_wpm: u64) {
+        self.dot_duration = Duration::from_nanos((1000 * 1000 * 1000) / codex_wpm);
     }
 
     pub fn duration(&self) -> Duration {

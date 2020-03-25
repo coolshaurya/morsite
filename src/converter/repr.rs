@@ -26,7 +26,7 @@ impl From<MorseString> for MorseRepr {
                     MorseSymbol::Dash => "_",
                     MorseSymbol::InterElementSpace => "",
                     MorseSymbol::InterLetterSpace => " ",
-                    MorseSymbol::InterWordSpace => "/",
+                    MorseSymbol::InterWordSpace => " / ",
                 })
                 .flat_map(|val| val.chars())
                 .collect(),
