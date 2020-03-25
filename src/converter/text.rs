@@ -1,7 +1,14 @@
 use crate::morse::{MorseString, MorseSymbol};
 use maplit::hashmap;
 
+#[derive(Debug,Clone)]
 pub struct Text(String);
+
+impl Text {
+    pub fn new(string:String) -> Self {
+        Text(string)
+    }
+}
 
 impl From<Text> for MorseString {
     fn from(text: Text) -> Self {

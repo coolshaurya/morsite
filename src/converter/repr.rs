@@ -1,7 +1,20 @@
 use crate::morse::{MorseString, MorseSymbol};
+use std::fmt;
 
 #[derive(Debug, Clone)]
 pub struct MorseRepr(String);
+
+impl MorseRepr {
+    pub fn new(string: String) -> Self {
+        MorseRepr(string)
+    }
+}
+
+impl fmt::Display for MorseRepr {
+    fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
+        write!(f, "{}", self.0)
+    }
+}
 
 impl From<MorseString> for MorseRepr {
     fn from(morse_string: MorseString) -> Self {
