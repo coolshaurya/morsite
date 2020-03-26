@@ -68,10 +68,10 @@ fn main() -> Result<(), String> {
     }
 
     match (args.dot_duration, args.paris_wpm, args.codex_wpm) {
-        (Some(dot_duration), _, __) => {
+        (Some(dot_duration), _, _) => {
             sound.set_dot_duration(Duration::from_millis(dot_duration));
         }
-        (_, Some(__), Some(___)) => {
+        (_, Some(_), Some(_)) => {
             return Err(String::from(
                 "Please only specify codex_wpm OR paris_wpm, not both",
             ));
