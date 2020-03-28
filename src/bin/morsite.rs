@@ -10,10 +10,11 @@ use structopt::StructOpt;
 /// the space between words. e.g - "be nice" will be represented
 /// as "_... . / _. .. _... .". The spaces around the "/" are
 /// merely for readibility.
+///       
 #[derive(Debug, StructOpt)]
 #[structopt(name = "morsite")]
 struct Args {
-    /// The text that is converted to morse code and played
+    /// The text that is played
     input: String,
 
     /// The frequency at which to play the sound
@@ -36,7 +37,7 @@ struct Args {
     #[structopt(short, long)]
     repr: bool,
 
-    /// Print the morse code  
+    /// Print morse representation
     #[structopt(short, long)]
     print: bool,
 
