@@ -10,7 +10,6 @@ a directory that is in your path (eg. - `~/.local/bin/` )
 ```sh
 $ cd /tmp
 $ git clone https://github.com/coolshaurya/morsite.git
-$ cargo build --release
-$ cp target/debug/morsite ~/.local/bin/
+$ cargo install --path .
 $ cd - 
 ```
